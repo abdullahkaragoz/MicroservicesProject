@@ -1,6 +1,6 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 
-namespace Course.Services.Catalog.Model
+namespace FreeCourse.Services.Catalog.Model
 {
     public class Category
     {

@@ -1,15 +1,15 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
 using System;
 
-namespace Course.Services.Catalog.Model
+namespace FreeCourse.Services.Catalog.Model
 {
     public class Course
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
-        
+
         public string Name { get; set; }
 
         public string Description { get; set; }
