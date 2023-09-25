@@ -1,11 +1,8 @@
-﻿using FreeCourse.Services.Catalog.Model;
-using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson;
-using System;
+﻿using System;
 
 namespace FreeCourse.Services.Catalog.Dtos
 {
-    public class CourseDto
+    internal class CourseDto
     {
         public string Id { get; set; }
         public string Name { get; set; }
