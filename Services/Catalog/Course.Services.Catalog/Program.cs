@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Course.Services.Catalog
+namespace FreeCourse.Services.Catalog
 {
     public class Program
     {
