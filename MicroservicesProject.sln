@@ -22,6 +22,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServer", "IdentityS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreeCourse.IdentityServer", "IdentityServer\FreeCourse.IdentityServer\FreeCourse.IdentityServer.csproj", "{1B0DAA4C-5146-49EA-B0F8-79D28160C3D2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PhotoStock", "PhotoStock", "{F344002A-AA8C-4585-8CEB-CFEED348462E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCourse.Services.PhotoStock", "Services\PhotoStock\FreeCourse.Services.PhotoStock\FreeCourse.Services.PhotoStock.csproj", "{47697200-5A15-4C23-9733-F3436CD2CEF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +44,10 @@ Global
 		{1B0DAA4C-5146-49EA-B0F8-79D28160C3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B0DAA4C-5146-49EA-B0F8-79D28160C3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B0DAA4C-5146-49EA-B0F8-79D28160C3D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47697200-5A15-4C23-9733-F3436CD2CEF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47697200-5A15-4C23-9733-F3436CD2CEF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47697200-5A15-4C23-9733-F3436CD2CEF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47697200-5A15-4C23-9733-F3436CD2CEF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +57,8 @@ Global
 		{96DF071D-853C-4DE1-A804-1D2686CF8EFC} = {11E5FB0F-D3FF-4756-AAD5-E25676CF6ADD}
 		{EA7A94DE-3C1C-4234-BFD3-36DDBADDF2E7} = {BF088366-62CB-40E0-9D46-BA98A2A7F521}
 		{1B0DAA4C-5146-49EA-B0F8-79D28160C3D2} = {622C188F-1D08-41B7-96DB-B38782EA4D2E}
+		{F344002A-AA8C-4585-8CEB-CFEED348462E} = {5BB1B329-3458-455B-A093-8C6D61E72B91}
+		{47697200-5A15-4C23-9733-F3436CD2CEF2} = {F344002A-AA8C-4585-8CEB-CFEED348462E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5F614352-AB6D-4109-ACBF-1371F1BC7CA8}
