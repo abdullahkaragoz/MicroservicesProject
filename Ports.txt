@@ -7,3 +7,5 @@ http://localhost:5012 => FreeCourse.Services.PhotoStock
 http://localhost:5013 => FreeCourse.Services.Basket
 
 http://localhost:5014 => FreeCourse.Services.Discount
+
+http://localhost:5015 => FreeCourse.Services.Order
