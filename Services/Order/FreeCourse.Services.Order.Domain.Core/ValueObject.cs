@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace FreeCourse.Services.Order.Domain.Core
 {
@@ -45,4 +46,4 @@ namespace FreeCourse.Services.Order.Domain.Core
         }
     }
 }
-}
+
