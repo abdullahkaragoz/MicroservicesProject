@@ -22,11 +22,11 @@ namespace FreeCourse.Services.Order.Application.Handlers
         {
             var newAddress = new Address
                 (
-                request.AddressDto.Province,
-                request.AddressDto.District,
-                request.AddressDto.Street,
-                request.AddressDto.ZipCode,
-                request.AddressDto.Line
+                request.Address.Province,
+                request.Address.District,
+                request.Address.Street,
+                request.Address.ZipCode,
+                request.Address.Line
                 );
 
             var newOrder = new Domain.OrderAggregate.Order(request.BuyerId, newAddress);
