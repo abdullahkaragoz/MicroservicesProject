@@ -34,7 +34,6 @@ namespace FreeCourse.Services.Order.Domain.OrderAggregate
                 var newOrderItem = new OrderItem(productId, productName, pictureUrl, price);
                 _orderItems.Add(newOrderItem);
             }
-
         }
 
         public decimal GetTotalPrice => _orderItems.Sum(x => x.Price);
