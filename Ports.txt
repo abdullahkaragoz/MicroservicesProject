@@ -9,3 +9,5 @@ http://localhost:5013 => FreeCourse.Services.Basket
 http://localhost:5014 => FreeCourse.Services.Discount
 
 http://localhost:5015 => FreeCourse.Services.Order
+
+http://localhost:5016 => FreeCourse.Services.FakePayment

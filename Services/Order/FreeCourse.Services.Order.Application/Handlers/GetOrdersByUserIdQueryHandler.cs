@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace FreeCourse.Services.Order.Application.Handlers
 {
-    class GetOrdersByUserIdQueryHandler : IRequestHandler<GetOrdersByUserIdQuery, Response<List<OrderDto>>>
+   public class GetOrdersByUserIdQueryHandler : IRequestHandler<GetOrdersByUserIdQuery, Response<List<OrderDto>>>
     {
         private readonly OrderDbContext _orderDbContext;
 
