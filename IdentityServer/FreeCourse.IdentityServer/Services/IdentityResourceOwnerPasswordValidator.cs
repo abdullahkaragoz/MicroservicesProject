@@ -18,7 +18,7 @@ namespace FreeCourse.IdentityServer.Services
 
         public async Task ValidateAsync(ResourceOwnerPasswordValidationContext context)
         {
-            var exitsUser = await _userManager.FindByNameAsync(context.UserName);
+            var exitsUser = await _userManager.FindByEmailAsync(context.UserName);
             if (exitsUser == null)
             {
                 var errors = new Dictionary<string, object>();
