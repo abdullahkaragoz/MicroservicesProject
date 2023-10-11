@@ -19,6 +19,8 @@ namespace FreeCourse.Web.Services
 {
     public class IdentityService : IIdentityService
     {
+        
+        #region Members
         private readonly HttpClient _httpClient;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ClientSettings _clientSettings;
@@ -32,6 +34,9 @@ namespace FreeCourse.Web.Services
             _serviceApiSettings = serviceApiSettings.Value;
         }
 
+        #endregion
+
+        #region Methods
         public async Task<TokenResponse> GetAccessTokenByRefreshToken()
         {
             var disco = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
@@ -72,11 +77,11 @@ namespace FreeCourse.Web.Services
             };
 
             var authenticationResult = await _httpContextAccessor.HttpContext.AuthenticateAsync();
-            
+
             var properties = authenticationResult.Properties;
             properties.StoreTokens(authenticationTokens);
 
-            await _httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,authenticationResult.Principal,properties);
+            await _httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, authenticationResult.Principal, properties);
 
             return token;
         }
@@ -176,5 +181,7 @@ namespace FreeCourse.Web.Services
 
             return Response<bool>.Success(200);
         }
+        #endregion
+
     }
 }
