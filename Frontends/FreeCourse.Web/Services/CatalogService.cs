@@ -10,16 +10,28 @@ namespace FreeCourse.Web.Services
 {
     public class CatalogService : ICatalogService
     {
-
+        #region Members
         private readonly HttpClient _client;
+        private readonly IPhotoStockService _photoStockService;
 
-        public CatalogService(HttpClient client)
+        public CatalogService(HttpClient client, IPhotoStockService photoStockService)
         {
             _client = client;
+            _photoStockService = photoStockService;
         }
 
+        #endregion
+
+        #region Methods
         public async Task<bool> CreateCourseAsync(CourseCreateInput courseCreateInput)
         {
+
+            var resultPhotoService = await _photoStockService.UploadPhoto(courseCreateInput.PhotoFormFile);
+            if (resultPhotoService != null)
+            {
+                courseCreateInput.Picture = resultPhotoService.Url;
+            }
+
             var response = await _client.PostAsJsonAsync<CourseCreateInput>("courses", courseCreateInput);
 
             return response.IsSuccessStatusCode;
@@ -94,5 +106,7 @@ namespace FreeCourse.Web.Services
 
             return response.IsSuccessStatusCode;
         }
+        #endregion
+
     }
 }

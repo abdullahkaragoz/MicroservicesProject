@@ -1,6 +1,7 @@
 ﻿using FreeCourse.Shared.Services;
 using FreeCourse.Web.Models.Catalogs;
 using FreeCourse.Web.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Security.Policy;
@@ -47,9 +48,7 @@ namespace FreeCourse.Web.Controllers
 
             return Redirect(nameof(Index));
         }
-
-
-
+        
         public async Task<IActionResult> Update(string id)
         {
             var course = await _catalogService.GetByCourseId(id);
@@ -95,6 +94,7 @@ namespace FreeCourse.Web.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
 
     }
 }
