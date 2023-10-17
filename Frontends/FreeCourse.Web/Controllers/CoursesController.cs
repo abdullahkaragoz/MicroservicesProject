@@ -12,6 +12,7 @@ namespace FreeCourse.Web.Controllers
     public class CoursesController : Controller
     {
 
+        #region Members
         private readonly ICatalogService _catalogService;
         private readonly ISharedIdentityService _sharedIdentityService;
 
@@ -21,6 +22,9 @@ namespace FreeCourse.Web.Controllers
             _sharedIdentityService = sharedIdentityService;
         }
 
+        #endregion
+
+        #region Methods
         public async Task<IActionResult> Index()
         {
             return View(await _catalogService.GetAllCourseByUserIdAsync(_sharedIdentityService.GetUserId));
@@ -94,7 +98,7 @@ namespace FreeCourse.Web.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
+        #endregion
 
     }
 }
