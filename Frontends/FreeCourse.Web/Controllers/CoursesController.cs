@@ -1,6 +1,7 @@
 ﻿using FreeCourse.Shared.Services;
 using FreeCourse.Web.Models.Catalogs;
 using FreeCourse.Web.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Security.Policy;
@@ -11,6 +12,7 @@ namespace FreeCourse.Web.Controllers
     public class CoursesController : Controller
     {
 
+        #region Members
         private readonly ICatalogService _catalogService;
         private readonly ISharedIdentityService _sharedIdentityService;
 
@@ -20,6 +22,9 @@ namespace FreeCourse.Web.Controllers
             _sharedIdentityService = sharedIdentityService;
         }
 
+        #endregion
+
+        #region Methods
         public async Task<IActionResult> Index()
         {
             return View(await _catalogService.GetAllCourseByUserIdAsync(_sharedIdentityService.GetUserId));
@@ -47,9 +52,7 @@ namespace FreeCourse.Web.Controllers
 
             return Redirect(nameof(Index));
         }
-
-
-
+        
         public async Task<IActionResult> Update(string id)
         {
             var course = await _catalogService.GetByCourseId(id);
@@ -95,6 +98,7 @@ namespace FreeCourse.Web.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+        #endregion
 
     }
 }
