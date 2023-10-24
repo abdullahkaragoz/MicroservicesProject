@@ -63,7 +63,7 @@ namespace FreeCourse.Web.Services
 
         public async Task<BasketViewModel> Get()
         {
-            var response = await _httpClient.GetAsync("basktes");
+            var response = await _httpClient.GetAsync("baskets");
             if (!response.IsSuccessStatusCode)
             {
                 return null;
