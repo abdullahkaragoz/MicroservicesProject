@@ -12,14 +12,16 @@ namespace FreeCourse.Web.Services
     public class BasketService : IBasketService
     {
 
-        #region MyRegion
+        #region Members
         private readonly HttpClient _httpClient;
         private readonly ISharedIdentityService _identityService;
+        private readonly IDiscountService _discountService;
 
-        public BasketService(HttpClient httpClient, ISharedIdentityService identityService)
+        public BasketService(HttpClient httpClient, ISharedIdentityService identityService, IDiscountService discountService)
         {
             _httpClient = httpClient;
             _identityService = identityService;
+            _discountService = discountService;
         }
 
         #endregion
@@ -31,7 +33,7 @@ namespace FreeCourse.Web.Services
 
             if (basket != null)
             {
-                if (!basket.BasketItems.Any(x=>x.CourseId==basketItemViewModel.CourseId))
+                if (!basket.BasketItems.Any(x => x.CourseId == basketItemViewModel.CourseId))
                 {
                     basket.BasketItems.Add(basketItemViewModel);
                 }
@@ -44,14 +46,35 @@ namespace FreeCourse.Web.Services
             await SaveOrUpdate(basket);
         }
 
-        public Task<bool> ApplyDiscount(string discountCode)
+        public async Task<bool> ApplyDiscount(string discountCode)
         {
-            throw new System.NotImplementedException();
+            await CancelApplyDiscount();
+
+            var basket = await Get();
+            if (basket == null)
+                return false;
+
+            var hasDiscount = await _discountService.GetDiscount(discountCode);
+            if (hasDiscount == null)
+                return false;
+
+            basket.ApplyDiscount(hasDiscount.Code, hasDiscount.Rate);
+            await SaveOrUpdate(basket);
+
+            return true;
         }
 
-        public Task<bool> CancelApplyDiscount()
+        public async Task<bool> CancelApplyDiscount()
         {
-            throw new System.NotImplementedException();
+            var basket = await Get();
+            if (basket == null || basket.DiscountCode == null)
+            {
+                return false;
+            }
+
+            basket.CancelDiscount();
+            await SaveOrUpdate(basket);
+            return true;
         }
 
         public async Task<bool> Delete()
@@ -107,6 +130,8 @@ namespace FreeCourse.Web.Services
 
             return response.IsSuccessStatusCode;
         }
+
+
         #endregion
 
     }
