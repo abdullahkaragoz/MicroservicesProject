@@ -1,7 +1,6 @@
 ﻿using FreeCourse.Shared.ControllerBases;
 using FreeCourse.Shared.Dtos;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace FreeCourse.Services.FakePayment.Controllers
 {
