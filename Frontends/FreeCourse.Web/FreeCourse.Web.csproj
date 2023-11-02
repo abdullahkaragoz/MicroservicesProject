@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Services\Order\FreeCourse.Services.Order.Application\FreeCourse.Services.Order.Application.csproj" />
     <ProjectReference Include="..\..\Shared\Course.Shared\FreeCourse.Shared.csproj" />
   </ItemGroup>
 
